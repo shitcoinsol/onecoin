@@ -1,0 +1,50 @@
+/* $ONE — minimal black & white */
+:root{ --black:#0b0b0b; --white:#fff; }
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0; color:var(--white); background:var(--black);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  overflow-x:hidden;
+}
+.split-bg{ position:fixed; inset:0; background:linear-gradient(90deg, var(--white) 50%, var(--black) 50%); z-index:-2; }
+
+.nav{ padding:16px clamp(16px, 4vw, 48px); display:flex; align-items:center; justify-content:space-between; }
+.brand{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px; mix-blend-mode:difference; }
+.logo{ width:22px; height:22px; }
+.logo-text{ font-size:18px; }
+.btn{
+  display:inline-block; padding:10px 16px; border-radius:999px; text-decoration:none; font-weight:700;
+  border:1.5px solid rgba(255,255,255,.6); color:var(--white); transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  mix-blend-mode:difference;
+}
+.btn:hover{ transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:var(--white); }
+
+.hero{ min-height:calc(100vh - 112px); display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:min(6vw,64px); padding: clamp(16px, 5vw, 64px); }
+.headline{
+  font-family:'Poppins', Inter, sans-serif;
+  font-weight:900;
+  font-size: clamp(32px, 6.2vw, 84px);
+  line-height:1.05;
+  margin:0 0 18px;
+  text-wrap:balance;
+  mix-blend-mode:difference;
+}
+.one{ letter-spacing:1px; }
+
+.ca-pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border:1.5px solid rgba(0,0,0,.6); border-radius:10px;
+  background:rgba(255,255,255,.9); cursor:copy; user-select:none;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.ca-pill:hover{ transform:translateY(-1px); background:rgba(255,255,255,1); border-color:var(--black); }
+.ca-label{ opacity:.85; font-weight:700; color:var(--black); }
+.ca-addr{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace; font-size:14px; color:var(--black); }
+
+.coin{ width:min(80vw, 420px); aspect-ratio:1/1; margin-inline:auto; filter:drop-shadow(0 30px 60px rgba(0,0,0,.35)); }
+.coin img{ width:100%; height:100%; object-fit:contain; animation: float 6s ease-in-out infinite; }
+@keyframes float{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-10px) } }
+
+.foot{ text-align:center; padding:24px; color:rgba(255,255,255,.65); mix-blend-mode:difference; }
+@media (max-width:880px){ .hero{ grid-template-columns:1fr; gap:32px; } .logo-text{ font-size:18px } .btn{ padding:10px 16px } }
